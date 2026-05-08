@@ -148,21 +148,21 @@ const TradingInterface: React.FC<TradingInterfaceProps> = ({
         <div className="trading-calcs">
           <div className="calc-item">
             <label>Current Price</label>
-            <value>${currentPrice ? (currentPrice / 100000000).toFixed(8) : '—'}</value>
+            <span>${currentPrice ? (currentPrice / 100000000).toFixed(8) : '—'}</span>
           </div>
           <div className="calc-item">
             <label>Notional Value</label>
-            <value>${(notionalValue / 100).toFixed(2)}</value>
+            <span>${(notionalValue / 100).toFixed(2)}</span>
           </div>
           <div className="calc-item">
             <label>Trading Fee (1%)</label>
-            <value>${(fee / 100).toFixed(2)}</value>
+            <span>${(fee / 100).toFixed(2)}</span>
           </div>
           <div className="calc-item">
             <label>Liquidation Price</label>
-            <value className={direction === 'Long' ? 'danger' : 'success'}>
+            <span className={direction === 'Long' ? 'danger' : 'success'}>
               ${liquidationPrice ? (liquidationPrice / 100000000).toFixed(8) : '—'}
-            </value>
+            </span>
           </div>
         </div>
 
