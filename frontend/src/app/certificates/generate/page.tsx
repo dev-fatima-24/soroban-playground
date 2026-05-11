@@ -17,7 +17,7 @@ function CertificateGeneratorInner() {
   const { user } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const certId = searchParams.get('id');
+  const certId = searchParams?.get('id');
 
   const [certificate, setCertificate] = useState<Certificate | null>(null);
   const [isLoading, setIsLoading] = useState(!!certId);
@@ -50,7 +50,7 @@ function CertificateGeneratorInner() {
             courseName: cert.course?.title || '',
             issueDate: cert.issuedAt,
             transactionHash: cert.certificateHash || '',
-            tificateId: cert.id,
+            certificateId: cert.id,
             instructorName: cert.course?.instructor || 'Web3 Lab Team',
           });
         })
