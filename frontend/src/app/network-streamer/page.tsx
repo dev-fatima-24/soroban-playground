@@ -149,7 +149,7 @@ export default function NetworkLedgerStreamer() {
       .force('center', forceCenter(width / 2, height / 2))
       .force(
         'collision',
-        forceCollide().radius((d: Node) => d.radius + 5)
+        forceCollide().radius((d: any) => d.radius + 5)
       );
 
     simulationRef.current = simulation;
