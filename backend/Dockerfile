@@ -3,8 +3,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
+# Install pnpm and prisma globally
+RUN npm install -g pnpm prisma
 
 # Install dependencies first (for faster caching)
 COPY package*.json ./
