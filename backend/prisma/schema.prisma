@@ -206,3 +206,32 @@ model Canvas {
   @@index([studentId])
   @@index([createdAt])
 }
+
+model ContractInteraction {
+  id                String   @id @default(cuid())
+  workspaceId       String   @default("default")
+  studentId         String?
+  contractName      String
+  contractAddress   String?
+  functionName      String
+  parameters        Json?    // Input parameters
+  result            Json?    // Execution result
+  status            String   @default("pending") // pending, success, failed, reverted
+  transactionHash   String?
+  blockNumber       String?
+  gasUsed           String?
+  executionTime     Int?     // Execution time in milliseconds
+  errorMessage      String?
+  errorDetails      Json?
+  network           String   @default("testnet")
+  timestamp         DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("contract_interactions")
+  @@index([studentId])
+  @@index([contractName])
+  @@index([status])
+  @@index([timestamp])
+  @@index([transactionHash])
+}
